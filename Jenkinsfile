@@ -1,13 +1,10 @@
     pipeline {
     agent any
-    
-    triggers{
-        pollSCM('H */4 * * 1-5')
-    }
+   
     tools {
            maven 'Maven'
-           jdk 'JAVA_11'
-           git 'GIT'
+            jdk 'JAVA_11'
+            git 'GIT'
             
           }
 
@@ -70,7 +67,7 @@
     post{
             success{
                     emailext to: "psschiatanya@gmail.com",
-                    subject: "Test Success",
+                    subject: "Test Email",
                     body: "Test",
                     attachLog: true
                   }
